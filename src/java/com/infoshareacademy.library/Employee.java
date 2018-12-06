@@ -59,7 +59,7 @@ public class Employee {
         this.active = active;
     }
 
-    public void pringEmployee() {
+    public void printEmployee() {
         System.out.println("Id pracownika: " + id +
                 " , Login: " + userName +
                 " , Imię i nazwisko: " + fullName +
