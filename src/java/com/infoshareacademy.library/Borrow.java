@@ -5,20 +5,19 @@ import infoshareacademy.library.Reader;
 import java.time.LocalDate;
 
 public class Borrow {
+    private int id;                     //id wypożyczenia
     private Book book;
     private Reader reader;
     private LocalDate dateOfBorrow;     //data wypożyczenia
     private LocalDate dateOfReturn;     //data wymaganego zwrotu książki
-    private int days;                   //pole przechowujące pozostałą ilość dni do oddania książki, również ilość dni
-    // do naliczenia kary za przetrzymanie książki (jeśli days<0)
 
 
-    public Borrow(Book book, Reader reader, LocalDate dateOfBorrow, LocalDate dateOfReturn, int days) {
+    public Borrow(int id, Book book, Reader reader, LocalDate dateOfBorrow, LocalDate dateOfReturn) {
+        this.id = id;
         this.book = book;
         this.reader = reader;
         this.dateOfBorrow = dateOfBorrow;
         this.dateOfReturn = dateOfReturn;
-        this.days = days;
     }
 
     public Book getBook() {
@@ -37,8 +36,8 @@ public class Borrow {
         return dateOfReturn;
     }
 
-    public int getDays() {
-        return days;
+    public int getId() {
+        return id;
     }
 
     public void setBook(Book book) {
@@ -57,13 +56,13 @@ public class Borrow {
         this.dateOfReturn = dateOfReturn;
     }
 
-    public void setDays(int days) {
-        this.days = days;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void printBorrow() {
-        String description = String.format("Data wypożyczenia: %s, Data wymaganego zwrotu: %s, Pozostało dni do oddania: %s",
-                dateOfBorrow, dateOfReturn, days);
+        String description = String.format("Nr id wypożyczenia: %s, Data wypożyczenia: %s, Data wymaganego zwrotu: %s",
+                id, dateOfBorrow, dateOfReturn);
         System.out.println(description);
         System.out.println("Dane czytelnika: "); //pobranie danych czytelnika i książki z innych klas
         reader.printReader();
