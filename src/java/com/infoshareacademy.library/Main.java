@@ -11,5 +11,7 @@ public class Main {
         // hasło nie jest wyswietalne
         Employee jank = new Employee(1, "jank", "11111", "Jan Kowalski", true);
         jank.printEmployee();
+
+
     }
 }

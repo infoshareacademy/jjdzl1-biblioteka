@@ -1,4 +1,4 @@
-id;tytuł;autor;rok_wydania;isbn;status_wyp;status_rez
+id;title;author;daterelease;isbn;loanstatus;reserstatus
 1;Java. Efektywne programowanie. Wydanie III;Joshua Bloch;2018;9788328345768;false;false
 2;Java. Podstawy. Wydanie X;Cay S. Horstmann;2016;9788328324800;false;false
 3;Programowanie w Javie. Solidna wiedza w praktyce. Wydanie XI;Paul Deitel, Harvey Deitel;2018;9788328339736;false;false
