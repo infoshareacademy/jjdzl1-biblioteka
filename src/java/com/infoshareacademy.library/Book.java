@@ -11,6 +11,11 @@ public class Book {
 
 // konstruktor
 
+    public Book(int idBook) {
+        this.idBook = idBook;
+    }
+
+
 //    wykomemtowalem z uwagi na fakt iz obiekt uzupelniam danymi przez settery
 /*    public Book(int idBook, String titleBook, String autor, int dateRelease, String isbn, Boolean statusLoan, Boolean statusReservation) {
         this.idBook = idBook;
@@ -24,10 +29,10 @@ public class Book {
 
 //gettery
 
-
-    public void setIdBook(int idBook) {
+// nie modyfikujemy id ksiazki po utworzeniu obiektu
+/*    public void setIdBook(int idBook) {
         this.idBook = idBook;
-    }
+    }*/
 
     public void setTitleBook(String titleBook) {
         this.titleBook = titleBook;
