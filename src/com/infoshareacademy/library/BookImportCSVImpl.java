@@ -1,4 +1,4 @@
-package java.com.infoshareacademy.library;
+package com.infoshareacademy.library;
 
 import com.opencsv.*;
 

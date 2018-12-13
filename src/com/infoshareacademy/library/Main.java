@@ -1,6 +1,4 @@
-package java.com.infoshareacademy.library;
-
-import infoshareacademy.library.Employee;
+package com.infoshareacademy.library;
 
 public class Main {
 
@@ -11,7 +9,6 @@ public class Main {
         // hasło nie jest wyswietalne
         Employee jank = new Employee(1, "jank", "11111", "Jan Kowalski", true);
         jank.printEmployee();
-
 
     }
 }

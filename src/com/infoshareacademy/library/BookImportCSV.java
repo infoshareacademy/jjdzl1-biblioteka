@@ -1,4 +1,4 @@
-package java.com.infoshareacademy.library;
+package com.infoshareacademy.library;
 
 import java.io.IOException;
 import java.util.List;

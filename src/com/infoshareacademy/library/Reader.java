@@ -1,4 +1,4 @@
-package infoshareacademy.library;
+package com.infoshareacademy.library;
 
 public class Reader {
     private int id;                 // unikatowe id

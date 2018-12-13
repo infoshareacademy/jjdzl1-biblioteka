@@ -1,4 +1,4 @@
-package java.com.infoshareacademy.library;
+package com.infoshareacademy.library;
 
 public class Book {
     private int idBook ;                           // numer id książki - unikatowy
