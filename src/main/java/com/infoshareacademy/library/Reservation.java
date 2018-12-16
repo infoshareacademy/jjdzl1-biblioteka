@@ -1,6 +1,6 @@
-package java.com.infoshareacademy.library;
+package com.infoshareacademy.library;
 
-import infoshareacademy.library.Reader;
+
 
 import java.time.LocalDate;
 
@@ -23,7 +23,7 @@ public class Reservation {
         return book;
     }
 
-    public infoshareacademy.library.Reader getReader() {
+    public Reader getReader() {
         return reader;
     }
 
@@ -43,7 +43,7 @@ public class Reservation {
         this.book = book;
     }
 
-    public void setReader(infoshareacademy.library.Reader reader) {
+    public void setReader(Reader reader) {
         this.reader = reader;
     }
 

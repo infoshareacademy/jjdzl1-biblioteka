@@ -1,4 +1,4 @@
-package infoshareacademy.library;
+package com.infoshareacademy.library;
 
 public class Employee {
     private int id;                 //  unikatowy nr pracownika

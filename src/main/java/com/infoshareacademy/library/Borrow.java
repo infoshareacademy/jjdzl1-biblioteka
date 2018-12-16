@@ -1,6 +1,4 @@
-package java.com.infoshareacademy.library;
-
-import infoshareacademy.library.Reader;
+package com.infoshareacademy.library;
 
 import java.time.LocalDate;
 
