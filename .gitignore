@@ -7,6 +7,9 @@
 # IntelliJ dir
 .idea
 
+# IntelliJ config files
+*.iml
+
 # BlueJ files
 *.ctxt
 
