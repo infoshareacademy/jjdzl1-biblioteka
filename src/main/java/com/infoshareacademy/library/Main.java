@@ -37,6 +37,8 @@ public class Main {
                     // do stuff
                     header();
                     menuItems();
+                } else if (answer == 4) {
+                    break;
                 } else {
                     System.out.println("Wpisano nieprawidłową wartość.");
                     System.out.println("Wybierz ponownie.");
@@ -59,6 +61,8 @@ public class Main {
         System.out.println("1. Przegladanie listy książek");
         System.out.println("2. Rezerwacja książki");
         System.out.println("3. Wypożyczenie ksiązki");
+        System.out.println("4. Zakończ program");
+        System.out.println();
         System.out.println("Wybierz  1, 2 lub 3 i naciśnij ENTER");
 
     }
