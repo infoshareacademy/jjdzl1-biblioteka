@@ -1,0 +1,80 @@
+package com.infoshareacademy.library;
+
+
+import java.io.File;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class MenuForImportData {
+
+    static int fileIsLoaded = 0;
+
+    public static String returnPathToFile() {
+        String path = "";
+        String defaultFileLocation = "../../../../resources/books.csv";
+/*
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("|                                                                           |");
+        System.out.println("|                        Witaj w aplikacji Bibliteka                        |");
+        System.out.println("|                                                                           |");
+        System.out.println("-----------------------------------------------------------------------------");
+*/
+        System.out.println("Wczytywanie danych z pliku zewnętrznego");
+        System.out.println("Domyślna lokalizacja pliku: \"" + defaultFileLocation + "\"");
+
+        // Wczytywanie pozycji menu
+        printMenuItems();
+        int i = 0;
+        while (i < 1) {
+            int answer = readNumber();
+            if (answer == 1) {
+                path = defaultFileLocation;
+                System.out.println("Wybrano domyślną lokalizację pliku: \"" + path + "\"");
+                i++;
+            } else if (answer == 2) {
+                System.out.println("Wybrano inny plik. Podaj scieżke do pliku i naciśnij ENTER.");
+                Scanner scanner1 = new Scanner(System.in);
+                path = scanner1.next();
+                System.out.println("Nowa lokalizacja pliku to: \"" + path + "\"");
+
+                // sprawdzenie czy w podanej sciezce istnieimport com.sun.xml.internal.ws.encoding.soap.SOAP12Constants;
+je taki plik
+                File file = new File(path);
+                if (file.exists() && !file.isDirectory()) {
+                    i++;
+                } else {
+                    System.out.println("Błąd: Pliku nie odnaleziono! Wybierz ponownie.");
+                    printMenuItems();
+                }
+
+            } else {
+                System.out.println("Wpisano nieprawidłową wartość.");
+                System.out.println("Wybierz ponownie.");
+                printMenuItems();
+            }
+        }
+        //zwraca ścieżkę do pliku
+        return path;
+    }
+
+    public static void printMenuItems() {
+        // Poszczegolne pozycje menu
+        System.out.println();
+        System.out.println("1. Wczytaj plik z domyślnej lokalizacji");
+        System.out.println("2. Wczytaj plik z innej lokalizacji  ");
+        System.out.println();
+        System.out.println("Wybierz 1 lub 2 i naciśnij ENTER");
+    }
+
+    public static int readNumber() {
+        // odczyt wyboru uzytkownika
+        Scanner scanner = new Scanner(System.in);
+        int answer = 0;
+        try {
+            answer = scanner.nextInt();
+        } catch (InputMismatchException e) {
+        }
+        return answer;
+    }
+
+}
