@@ -37,8 +37,7 @@ public class MenuForImportData {
                 path = scanner1.next();
                 System.out.println("Nowa lokalizacja pliku to: \"" + path + "\"");
 
-                // sprawdzenie czy w podanej sciezce istnieimport com.sun.xml.internal.ws.encoding.soap.SOAP12Constants;
-je taki plik
+                // sprawdzenie czy w podanej sciezce istnieje taki plik
                 File file = new File(path);
                 if (file.exists() && !file.isDirectory()) {
                     i++;
