@@ -63,7 +63,7 @@ public class Main {
         System.out.println("3. Wypożyczenie ksiązki");
         System.out.println("4. Zakończ program");
         System.out.println();
-        System.out.println("Wybierz  1, 2 lub 3 i naciśnij ENTER");
+        System.out.println("Wybierz  1, 2, 3 lub 4 i naciśnij ENTER");
 
     }
 
