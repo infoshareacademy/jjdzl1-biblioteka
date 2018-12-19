@@ -18,9 +18,32 @@ public class Main {
             System.out.println();
 
             // Funkcjonalnść poniżej jeszcze nie działa
-            System.out.println("1. Przegladanie listy książek");
-            System.out.println("2. Rezerwacja książki");
-            System.out.println("3. Wypożyczenie ksiązki");
+            menuItems();
+            int answer = MenuForImportData.readNumber();
+            int i = 0;
+            while (i < 1) {
+                if (answer == 1) {
+                    System.out.println("Przeglądanie listy książek");
+                    // do stuff
+                    header();
+                    menuItems();
+                } else if (answer == 2) {
+                    System.out.println("Rezerwacja książki");
+                    // do stuff
+                    header();
+                    menuItems();
+                } else if (answer == 3) {
+                    System.out.println("Wypożyczenie książki");
+                    // do stuff
+                    header();
+                    menuItems();
+                } else {
+                    System.out.println("Wpisano nieprawidłową wartość.");
+                    System.out.println("Wybierz ponownie.");
+                }
+                answer = MenuForImportData.readNumber();
+
+            }
 
         }
     }
@@ -29,6 +52,14 @@ public class Main {
         System.out.println("-----------------------------------------------------------------------------");
         System.out.println("|                        Witaj w aplikacji Bibliteka                        |");
         System.out.println("-----------------------------------------------------------------------------");
+
+    }
+
+    public static void menuItems() {
+        System.out.println("1. Przegladanie listy książek");
+        System.out.println("2. Rezerwacja książki");
+        System.out.println("3. Wypożyczenie ksiązki");
+        System.out.println("Wybierz  1, 2 lub 3 i naciśnij ENTER");
 
     }
 
