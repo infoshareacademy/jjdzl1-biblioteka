@@ -8,18 +8,10 @@ import java.util.Scanner;
 
 public class MenuForImportData {
 
-    static int fileIsLoaded = 0;
 
     public static void readPathToFile() throws IOException {
         String path = "";
         String defaultFileLocation = "src/main/resources/books.csv";
-/*
-        System.out.println("-----------------------------------------------------------------------------");
-        System.out.println("|                                                                           |");
-        System.out.println("|                        Witaj w aplikacji Bibliteka                        |");
-        System.out.println("|                                                                           |");
-        System.out.println("-----------------------------------------------------------------------------");
-*/
         System.out.println("Wczytywanie danych z pliku zewnętrznego");
         System.out.println("Domyślna lokalizacja pliku: \"" + defaultFileLocation + "\"");
 
