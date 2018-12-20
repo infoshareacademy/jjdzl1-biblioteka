@@ -11,19 +11,19 @@ public class BookImportCSVImpl implements BookImportCSV {
 
     //    moze sciezke do pliku przekazywac w menu ?
 //    wtedy nie trzeba jej tu inicjalizowac ??
-    private static final String filePath = "../../../../resources/books.csv";
+//    private static final String filePath = "src/main/resources/books.csv";
 
     @Override
-    public List bookObjectCreate() throws IOException {
+    public List bookObjectCreate(String filePath) throws IOException {
 
         List<Book> ksiazki = new ArrayList<>();     //tworzymy liste obiektow Book o typie (????) ArrayList
 
         //tworzymy parser w ktorym okreslamy zasady parsowania / przetwarzania pliku csv
         CSVParser parser = new CSVParserBuilder()
-                                .withIgnoreQuotations(true)
-                                .withIgnoreLeadingWhiteSpace(true)
-                                .withSeparator(';')     //mozemy szybko zmienic separator w razie potrzeby
-                                .build();
+                .withIgnoreQuotations(true)
+                .withIgnoreLeadingWhiteSpace(true)
+                .withSeparator(';')     //mozemy szybko zmienic separator w razie potrzeby
+                .build();
 
 
         try (CSVReader czytnikCSV = new CSVReaderBuilder(new FileReader(filePath)).withSkipLines(1).build()) {      //czytnik ignoruje linie 1 tj. naglowkowa

@@ -2,6 +2,7 @@ package com.infoshareacademy.library;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,9 +10,9 @@ public class MenuForImportData {
 
     static int fileIsLoaded = 0;
 
-    public static String returnPathToFile() {
+    public static void readPathToFile() throws IOException {
         String path = "";
-        String defaultFileLocation = "../../../../resources/books.csv";
+        String defaultFileLocation = "src/main/resources/books.csv";
 /*
         System.out.println("-----------------------------------------------------------------------------");
         System.out.println("|                                                                           |");
@@ -52,8 +53,9 @@ public class MenuForImportData {
                 printMenuItems();
             }
         }
-        //zwraca ścieżkę do pliku
-        return path;
+        //uruchamia metodę wczytywania danych z pliku csv
+        BookImportCSV bookImportCSV = new BookImportCSVImpl();
+        bookImportCSV.bookObjectCreate(path);
     }
 
     public static void printMenuItems() {
