@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class BookImportCSVImpl implements BookImportCSV {
 
     //    moze sciezke do pliku przekazywac w menu ?
@@ -14,9 +15,9 @@ public class BookImportCSVImpl implements BookImportCSV {
    // private static final String filePath = "../../../../resources/books.csv";
 
     @Override
-    public List bookObjectCreate(String filePath) throws IOException {
+    public ArrayList<Book> bookObjectCreate(String filePath) throws IOException {
 
-        List<Book> ksiazki = new ArrayList<>();     //tworzymy liste obiektow Book o typie (????) ArrayList
+        ArrayList<Book> ksiazki = new ArrayList<>();     //tworzymy liste obiektow Book o typie (????) ArrayList
 
         //tworzymy parser w ktorym okreslamy zasady parsowania / przetwarzania pliku csv
         CSVParser parser = new CSVParserBuilder()
@@ -56,7 +57,7 @@ public class BookImportCSVImpl implements BookImportCSV {
             for (Book line : ksiazki) {
                 System.out.println(line);
             }
-
+            Search.searchBook(ksiazki);
             return ksiazki;
         }
     }
