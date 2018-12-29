@@ -26,7 +26,7 @@ public class BookImportCSVImpl implements BookImportCSV {
                 .build();
 
 
-        try (CSVReader czytnikCSV = new CSVReaderBuilder(new FileReader(filePath)).withSkipLines(1).build()) {      //czytnik ignoruje linie 1 tj. naglowkowa
+        try (CSVReader czytnikCSV = new CSVReaderBuilder(new FileReader(filePath)).withCSVParser(parser).withSkipLines(1).build()) {      //czytnik ignoruje linie 1 tj. naglowkowa
 
             String[] tablicaCSV;    //prosta tablica przetrzymujaca poszczegolne pola wiersza z pliku CSV
 
