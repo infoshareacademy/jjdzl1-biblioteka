@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface BookImportCSV {
 
-    List bookObjectCreate() throws IOException;
+    List bookObjectCreate(String filePath) throws IOException;
 
 }
