@@ -16,8 +16,8 @@ public class BookImportCSVImpl implements BookImportCSV {
 
     @Override
     public ArrayList<Book> bookObjectCreate(String filePath) throws IOException {
-
         ArrayList<Book> ksiazki = new ArrayList<>();     //tworzymy liste obiektow Book o typie (????) ArrayList
+
 
         //tworzymy parser w ktorym okreslamy zasady parsowania / przetwarzania pliku csv
         CSVParser parser = new CSVParserBuilder()
@@ -58,6 +58,15 @@ public class BookImportCSVImpl implements BookImportCSV {
                 System.out.println(line);
             }
             Search.searchBook(ksiazki);
+
+            ksiazki.get(5).setStatusReservation(true);
+
+
+            System.out.println("Lista po zmianach");
+            for (Book line : ksiazki) {
+                System.out.println(line);
+            }
+
             return ksiazki;
         }
     }
