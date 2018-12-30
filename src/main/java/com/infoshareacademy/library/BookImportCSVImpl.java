@@ -50,7 +50,7 @@ public class BookImportCSVImpl implements BookImportCSV {
 //                System.out.println(ksiazka);
             }
 
-            //Na koniec podsumowanie
+            /*//Na koniec podsumowanie
             System.out.println("Stworzono tablice / liste ksiazki o ponizszej zawartosci: ");
 
             //tego nie jestem pewny - nie testowalem
@@ -64,7 +64,7 @@ public class BookImportCSVImpl implements BookImportCSV {
             System.out.println("Lista po zmianach");
             for (Book line : ksiazki) {
                 System.out.println(line);
-            }
+            }*/
 
             return ksiazki;
         }
