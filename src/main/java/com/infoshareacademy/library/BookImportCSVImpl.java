@@ -57,7 +57,6 @@ public class BookImportCSVImpl implements BookImportCSV {
             for (Book line : ksiazki) {
                 System.out.println(line);
             }
-            Search.searchBook(ksiazki);
 
             ksiazki.get(5).setStatusReservation(true);
 

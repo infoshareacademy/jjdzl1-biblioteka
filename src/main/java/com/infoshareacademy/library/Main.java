@@ -2,6 +2,7 @@ package com.infoshareacademy.library;
 
 
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
 
@@ -20,7 +21,9 @@ public class Main {
         while (i < 1) {
             if (answer == 1) {
                 System.out.println("Przeglądanie listy książek");
-                Search.searchBook()
+                BookImportCSV bookImportCSV = new BookImportCSVImpl();
+                List ksiazki = bookImportCSV.bookObjectCreate("src/main/resources/books.csv");
+                Search.searchBook(ksiazki);
                 header();
                 menuItems();
             } else if (answer == 2) {
