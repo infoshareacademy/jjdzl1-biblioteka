@@ -12,7 +12,6 @@ public class BookImportCSVImpl implements BookImportCSV {
 
     //    moze sciezke do pliku przekazywac w menu ?
 //    wtedy nie trzeba jej tu inicjalizowac ??
-   // private static final String filePath = "../../../../resources/books.csv";
 
     @Override
     public List<Book> bookObjectCreate(String filePath) throws IOException {
@@ -45,25 +44,12 @@ public class BookImportCSVImpl implements BookImportCSV {
 
 //                i teraz to listy
                 ksiazki.add(ksiazka);
-
-//                check out
-//                System.out.println(ksiazka);
             }
 
             /*//Na koniec podsumowanie
-            System.out.println("Stworzono tablice / liste ksiazki o ponizszej zawartosci: ");
-
-            //tego nie jestem pewny - nie testowalem
             for (Book line : ksiazki) {
                 System.out.println(line);
             }
-
-            ksiazki.get(5).setStatusReservation(true);
-
-
-            System.out.println("Lista po zmianach");
-            for (Book line : ksiazki) {
-                System.out.println(line);
             }*/
 
             return ksiazki;

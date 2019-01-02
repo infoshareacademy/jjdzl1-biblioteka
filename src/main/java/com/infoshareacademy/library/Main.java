@@ -1,8 +1,6 @@
 package com.infoshareacademy.library;
 
-
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
 
@@ -21,9 +19,7 @@ public class Main {
         while (i < 1) {
             if (answer == 1) {
                 System.out.println("Przeglądanie listy książek");
-                BookImportCSV bookImportCSV = new BookImportCSVImpl();
-                List<Book> ksiazki = bookImportCSV.bookObjectCreate("src/main/resources/books.csv");
-                Search.searchBook(ksiazki);
+                Search.searchBook();
                 header();
                 menuItems();
             } else if (answer == 2) {

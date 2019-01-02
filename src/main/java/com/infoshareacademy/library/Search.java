@@ -1,14 +1,13 @@
 package com.infoshareacademy.library;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Search {
 
+
+
 //    SlyT - metoda statyczna
-    public static void searchBook(List<Book> ksiazki) throws IOException {
+    public static void searchBook() {
 
         System.out.println("Wpisz tytuł książki:");
         Scanner title = new Scanner(System.in);
