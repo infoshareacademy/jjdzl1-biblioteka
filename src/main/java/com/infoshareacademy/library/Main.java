@@ -45,7 +45,7 @@ public class Main {
 
     public static void header() {
         System.out.println("-----------------------------------------------------------------------------");
-        System.out.println("|                        Witaj w aplikacji Bibliteka                        |");
+        System.out.println("|                 Witaj w aplikacji Bibliteka by Arkadius                   |");
         System.out.println("-----------------------------------------------------------------------------");
 
     }
