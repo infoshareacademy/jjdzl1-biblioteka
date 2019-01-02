@@ -22,7 +22,7 @@ public class Main {
             if (answer == 1) {
                 System.out.println("Przeglądanie listy książek");
                 BookImportCSV bookImportCSV = new BookImportCSVImpl();
-                List ksiazki = bookImportCSV.bookObjectCreate("src/main/resources/books.csv");
+                List<Book> ksiazki = bookImportCSV.bookObjectCreate("src/main/resources/books.csv");
                 Search.searchBook(ksiazki);
                 header();
                 menuItems();
