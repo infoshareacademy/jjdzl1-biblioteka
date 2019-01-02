@@ -4,10 +4,13 @@ package com.infoshareacademy.library;
 import java.io.File;
 import java.io.IOException;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class MenuForImportData {
 
+//    SlyT - to pierwsza zmiana
+public static List<Book> listaKsiazek;
 
     public static void readPathToFile() throws IOException {
         String path = "";
@@ -47,7 +50,8 @@ public class MenuForImportData {
         }
         //uruchamia metodę wczytywania danych z pliku csv
         BookImportCSV bookImportCSV = new BookImportCSVImpl();
-        bookImportCSV.bookObjectCreate(path);
+//        SlyT - to druga zmiana
+        listaKsiazek = bookImportCSV.bookObjectCreate(path);
     }
 
     public static void printMenuItems() {
