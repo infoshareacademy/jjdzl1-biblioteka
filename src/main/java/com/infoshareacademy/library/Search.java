@@ -14,7 +14,7 @@ public class Search {
         System.out.println("Wyniki wyszukiwania:");
 
         for (int i = 0; i < MenuForImportData.listaKsiazek.size(); i++) {
-            String newTitleBook = MenuForImportData.listaKsiazek.get(i).toString().toLowerCase();
+            String newTitleBook = MenuForImportData.listaKsiazek.get(i).getTitleBook().toLowerCase();
             if (newTitleBook.contains(inputTitle)) {
                 System.out.println(MenuForImportData.listaKsiazek.get(i));
                 positions.add(MenuForImportData.listaKsiazek.get(i));
