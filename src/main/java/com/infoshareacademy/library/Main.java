@@ -24,7 +24,7 @@ public class Main {
                 menuItems();
             } else if (answer == 2) {
                 System.out.println("Rezerwacja książki");
-                // do stuff
+                Reservation.reservation();
                 header();
                 menuItems();
             } else if (answer == 3) {
