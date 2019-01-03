@@ -27,10 +27,10 @@ public class Reservation extends BookService {
             reservation();
         } else {
 //jeśli znalazło jedną książkę pytamy użytkownika o rezerwację
-            System.out.println("Czy zarezerwować znalezioną książkę? (Y/N)");
+            System.out.println("Czy zarezerwować znalezioną książkę? (T/N)");
             Scanner text = new Scanner(System.in);
             String answer = text.nextLine().toLowerCase();
-            if (answer.equals("y")) {
+            if (answer.equals("t")) {
                 if (positions.get(0).getStatusReservation() || positions.get(0).getStatusLoan()) {
                     System.out.println("Ta książka jest już zarezerwowana lub wypożyczona");
                     reservation();
@@ -55,7 +55,10 @@ public class Reservation extends BookService {
                 reservation();
             }
         }
-// tworzenie listy rezerwacji i wyświetlenie użytkownikowi
+    }
+
+    // wyświetlenie listy rezerwacji
+    public static void showReservation() {
         System.out.println("Twoje rezerwacje to: ");
         for (Reservation j : listOfReservation)
             System.out.println(j);
