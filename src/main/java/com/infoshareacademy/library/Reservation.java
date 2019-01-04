@@ -64,8 +64,12 @@ public class Reservation extends BookService {
     // wyświetlenie listy rezerwacji
     public static void showReservation() {
         System.out.println("Twoje rezerwacje to: ");
-        for (Reservation j : listOfReservation)
-            System.out.println(j);
+        if (listOfReservation.size() == 0)
+            System.out.println("brak");
+        else {
+            for (Reservation j : listOfReservation)
+                System.out.println(j);
+        }
     }
 
     //metoda do nawigacji w menu
