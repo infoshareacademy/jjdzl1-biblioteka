@@ -2,6 +2,7 @@ package com.infoshareacademy.library;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -60,28 +61,37 @@ public class Reservation extends BookService {
         }
     }
 
-// wyświetlenie listy rezerwacji
+    // wyświetlenie listy rezerwacji
     public static void showReservation() {
         System.out.println("Twoje rezerwacje to: ");
         for (Reservation j : listOfReservation)
             System.out.println(j);
     }
 
-//metoda do nawigacji w menu
+    //metoda do nawigacji w menu
     public static void chooseOption() {
         System.out.println("Wybierz opcję:");
         System.out.println("1. Wyszukaj ponownie");
         System.out.println("2. Powrót do menu");
-        Scanner text = new Scanner(System.in);
-        int chooseOption = text.nextInt();
-        switch (chooseOption) {
-            case 1:
-                reservation();
-            case 2:
-                break;
+        try {
+            Scanner text = new Scanner(System.in);
+            int chooseOption = text.nextInt();
+            switch (chooseOption) {
+                case 1:
+                    reservation();
+                case 2:
+                    break;
+                default:
+                    System.out.println("Wybierz 1 lub 2");
+                    chooseOption();
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Podałeś niepoprawny znak");
+            chooseOption();
         }
     }
 }
+
 
 
 
