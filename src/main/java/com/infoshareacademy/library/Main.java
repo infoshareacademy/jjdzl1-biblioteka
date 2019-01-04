@@ -25,7 +25,6 @@ public class Main {
             } else if (answer == 2) {
                 System.out.println("Rezerwacja książki");
                 Reservation.reservation();
-                Reservation.showReservation();
                 header();
                 menuItems();
             } else if (answer == 3) {
@@ -34,8 +33,12 @@ public class Main {
                 header();
                 menuItems();
             } else if (answer == 4) {
+                Reservation.showReservation();
+                header();
+                menuItems();
+            } else if (answer == 5)
                 break;
-            } else {
+            else {
                 System.out.println("Wpisano nieprawidłową wartość.");
                 System.out.println("Wybierz ponownie.");
             }
@@ -55,9 +58,10 @@ public class Main {
         System.out.println("1. Przegladanie listy książek");
         System.out.println("2. Rezerwacja książki");
         System.out.println("3. Wypożyczenie książki");
-        System.out.println("4. Zakończ program");
+        System.out.println("4. Lista zarezerwowanych/wypożyczonych książek");
+        System.out.println("5. Zakończ program");
         System.out.println();
-        System.out.println("Wybierz  1, 2, 3 lub 4 i naciśnij ENTER");
+        System.out.println("Wybierz  1, 2, 3, 4 lub 5 i naciśnij ENTER");
 
     }
 

@@ -11,32 +11,32 @@ public class Reservation extends BookService {
         return "Reservation{}" + super.toString();
     }
 
-    public static List<Reservation> listOfReservation = new ArrayList<Reservation>();
+    public static List<Reservation> listOfReservation = new ArrayList<>();
 
     public static void reservation() {
+        //pobranie pozycji z wyszukiwarki
         List<Book> positions = Search.searchBook();
         System.out.println();
 
-//sprawdzenie czy wyszukiwanie znalazło więcej niż jedną książkę (lub żadnej)
-
+        //sprawdzenie czy wyszukiwanie znalazło więcej niż jedną książkę (lub żadnej)
         if (positions.size() == 0) {
-            System.out.println("Nie znaleziono książki, spróbuj ponownie" + "\n");
-            reservation();
+            System.out.println("Nie znaleziono książki" + "\n");
+            chooseOption();
         } else if (positions.size() > 1) {
             System.out.println("Nie możesz zarezerwować kilku książek jednocześnie, musisz zawęzić wyszukiwanie książki" + "\n");
-            reservation();
+            chooseOption();
         } else {
-//jeśli znalazło jedną książkę pytamy użytkownika o rezerwację
+            //jeśli znalazło jedną książkę pytamy użytkownika o rezerwację
             System.out.println("Czy zarezerwować znalezioną książkę? (T/N)");
             Scanner text = new Scanner(System.in);
             String answer = text.nextLine().toLowerCase();
             if (answer.equals("t")) {
                 if (positions.get(0).getStatusReservation() || positions.get(0).getStatusLoan()) {
-                    System.out.println("Ta książka jest już zarezerwowana lub wypożyczona");
-                    reservation();
+                    System.out.println("Ta książka jest już zarezerwowana lub wypożyczona" + "\n");
+                    chooseOption();
                 } else {
                     positions.get(0).setStatusReservation(true);
-//tworzenie obiektu rezerwacji
+                    //tworzenie obiektu rezerwacji
                     Reservation reservation = new Reservation();
                     reservation.setBook(positions.get(0));
                     reservation.setFirstDate(LocalDate.now());
@@ -46,22 +46,40 @@ public class Reservation extends BookService {
                     else {
                         reservation.setId(listOfReservation.size() + 1);
                     }
+                    System.out.println("Zarezerwowałeś książkę:");
+                    System.out.println(reservation);
+                    //dodanie rezerwacji do listy
                     Reservation.listOfReservation.add(reservation);
                 }
             } else if (answer.equals("n")) {
-                reservation();
+                chooseOption();
             } else {
-                System.out.println("Podałeś niepoprawną komendę");
+                System.out.println("Podałeś niepoprawną komendę" + "\n");
                 reservation();
             }
         }
     }
 
-    // wyświetlenie listy rezerwacji
+// wyświetlenie listy rezerwacji
     public static void showReservation() {
         System.out.println("Twoje rezerwacje to: ");
         for (Reservation j : listOfReservation)
             System.out.println(j);
+    }
+
+//metoda do nawigacji w menu
+    public static void chooseOption() {
+        System.out.println("Wybierz opcję:");
+        System.out.println("1. Wyszukaj ponownie");
+        System.out.println("2. Powrót do menu");
+        Scanner text = new Scanner(System.in);
+        int chooseOption = text.nextInt();
+        switch (chooseOption) {
+            case 1:
+                reservation();
+            case 2:
+                break;
+        }
     }
 }
 
