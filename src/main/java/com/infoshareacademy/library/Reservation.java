@@ -35,19 +35,19 @@ public class Reservation extends BookService {
                     System.out.println("Ta książka jest już zarezerwowana lub wypożyczona" + "\n");
                     chooseOption();
                 } else {
+                    //zmiana statusu książki
                     positions.get(0).setStatusReservation(true);
+
                     //tworzenie obiektu rezerwacji
                     Reservation reservation = new Reservation();
                     reservation.setBook(positions.get(0));
                     reservation.setFirstDate(LocalDate.now());
                     reservation.setSecondDate(LocalDate.now().plusDays(3));
-                    if (listOfReservation.size() < 1)
-                        reservation.setId(1);
-                    else {
-                        reservation.setId(listOfReservation.size() + 1);
-                    }
+                    reservation.setId(listOfReservation.size() + 1);
+
                     System.out.println("Zarezerwowałeś książkę:");
                     System.out.println(reservation);
+
                     //dodanie rezerwacji do listy
                     Reservation.listOfReservation.add(reservation);
                 }
