@@ -8,8 +8,6 @@ public class Main {
         Menu.header();
         MenuForImportData.readPathToFile();
         Menu.header();
-        System.out.println("Wczytano plik z danymi");
-        System.out.println();
         Menu.menuItems();
         Menu.menuApp();
     }

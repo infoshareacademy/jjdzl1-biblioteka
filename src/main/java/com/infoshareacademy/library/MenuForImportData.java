@@ -51,6 +51,10 @@ public static List<Book> listaKsiazek;
         BookImportCSV bookImportCSV = new BookImportCSVImpl();
 //        SlyT - to druga zmiana
         listaKsiazek = bookImportCSV.bookObjectCreate(path);
+
+        System.out.println();
+        System.out.println("Wczytano plik z danymi");
+        System.out.println();
     }
 
     public static void printMenuItems() {
