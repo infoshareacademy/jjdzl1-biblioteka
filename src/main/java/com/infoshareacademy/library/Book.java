@@ -9,14 +9,10 @@ public class Book {
     private Boolean statusLoan = false;            // status wypożyczenia - true/false wypożyczona/nie wypożyczona
     private Boolean statusReservation = false;     // status rezerwacji - true/false zarezerwowana/nie zarezerwowana
 
-// konstruktor
 
     public Book(int idBook) {
         this.idBook = idBook;
     }
-
-//gettery
-
 
     public void setTitleBook(String titleBook) {
         this.titleBook = titleBook;
@@ -96,5 +92,4 @@ public class Book {
         System.out.println("Czy wypożyczona: "+statusLoan);
         System.out.println("Czy zarezerwowana: "+statusReservation);
     }
-// być może jeszcze inne metody tu się pojawią jak dodawanie książki, wyszukiwanie itd ..
 }

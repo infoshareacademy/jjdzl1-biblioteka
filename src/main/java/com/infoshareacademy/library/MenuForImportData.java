@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class MenuForImportData {
 
-//    SlyT - to pierwsza zmiana
 public static List<Book> listaKsiazek;
 
     public static void readPathToFile() throws IOException {
@@ -73,5 +72,4 @@ public static List<Book> listaKsiazek;
         }
         return answer;
     }
-
 }
