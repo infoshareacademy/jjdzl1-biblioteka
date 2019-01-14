@@ -16,6 +16,14 @@ public class BookService {
     private LocalDate firstDate;
     private LocalDate secondDate;
 
+    public BookService(int id, Book book, Reader reader, LocalDate firstDate, LocalDate secondDate) {
+        this.id = id;
+        this.book = book;
+        this.reader = reader;
+        this.firstDate = firstDate;
+        this.secondDate = secondDate;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -97,11 +105,8 @@ public class BookService {
                     positions.get(0).setStatusReservation(true);
 
                     //tworzenie obiektu rezerwacji
-                    BookService reservation = new BookService();
-                    reservation.setBook(positions.get(0));
-                    reservation.setFirstDate(LocalDate.now());
-                    reservation.setSecondDate(LocalDate.now().plusDays(3));
-                    reservation.setId(listOfReservation.size() + 1);
+                    BookService reservation = new BookService
+                            (listOfReservation.size() + 1, positions.get(0), null, LocalDate.now(), LocalDate.now().plusDays(3));
 
                     System.out.println("Zarezerwowana książka:");
                     System.out.println(reservation);
@@ -112,11 +117,8 @@ public class BookService {
                     positions.get(0).setStatusLoan(true);
 
                     //tworzenie obiektu wypożyczenia
-                    BookService borrowedBook = new BookService();
-                    borrowedBook.setBook(positions.get(0));
-                    borrowedBook.setFirstDate(LocalDate.now());
-                    borrowedBook.setSecondDate(LocalDate.now().plusDays(30));
-                    borrowedBook.setId(listOfBorrowedBooks.size() + 1);
+                    BookService borrowedBook = new BookService
+                            (listOfBorrowedBooks.size() + 1, positions.get(0), null, LocalDate.now(), LocalDate.now().plusDays(30));
 
                     System.out.println("Wypożyczona książka:");
                     System.out.println(borrowedBook);
