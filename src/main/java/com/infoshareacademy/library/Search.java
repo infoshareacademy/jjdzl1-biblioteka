@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Search {
+
+    private Search(){
+        throw new IllegalStateException("Klasa uzytkowa");
+    }
+
     public static List<Book> searchBook() {
         List<Book> positions = new ArrayList<>();
         System.out.println("Wpisz tytuł książki lub naciśnij ENTER aby wyświetlić wszystkie:");

@@ -1,6 +1,11 @@
 package com.infoshareacademy.library;
 
 public class Menu {
+
+    private Menu(){
+        throw new IllegalStateException("Klasa uzytkowa");
+    }
+
     public static void menuApp() {
         int answer = MenuForImportData.readNumber();
         int i = 0;

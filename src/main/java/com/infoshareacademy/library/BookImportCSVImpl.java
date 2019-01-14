@@ -10,13 +10,13 @@ import java.util.List;
 
 public class BookImportCSVImpl implements BookImportCSV {
 
-    //    moze sciezke do pliku przekazywac w menu ?
-//    wtedy nie trzeba jej tu inicjalizowac ??
+
 
     @Override
     public List<Book> bookObjectCreate(String filePath) throws IOException {
-        List<Book> ksiazki = new ArrayList<>();     //tworzymy liste obiektow Book o typie (????) ArrayList
 
+        //tworzymy liste obiektow Book o typie (????) ArrayList
+        List<Book> ksiazki = new ArrayList<>();
 
         //tworzymy parser w ktorym okreslamy zasady parsowania / przetwarzania pliku csv
         CSVParser parser = new CSVParserBuilder()
@@ -45,12 +45,6 @@ public class BookImportCSVImpl implements BookImportCSV {
 //                i teraz to listy
                 ksiazki.add(ksiazka);
             }
-
-            /*//Na koniec podsumowanie
-            for (Book line : ksiazki) {
-                System.out.println(line);
-            }
-            }*/
 
             return ksiazki;
         }

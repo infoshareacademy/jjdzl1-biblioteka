@@ -9,6 +9,10 @@ import java.util.Scanner;
 
 public class MenuForImportData {
 
+    private MenuForImportData(){
+        throw new IllegalStateException("Klasa uzytkowa");
+    }
+
 public static List<Book> listaKsiazek;
 
     public static void readPathToFile() throws IOException {
@@ -73,6 +77,7 @@ public static List<Book> listaKsiazek;
         try {
             answer = scanner.nextInt();
         } catch (InputMismatchException e) {
+            System.out.println("Wprowadzono niewlasciwa wartosc.");
         }
         return answer;
     }

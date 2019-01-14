@@ -164,6 +164,7 @@ public class BookService {
             switch (chooseOption) {
                 case 1:
                     bookService(type);
+                    break;
                 case 2:
                     break;
                 default:
