@@ -4,10 +4,16 @@ package com.infoshareacademy.library;
 import java.io.File;
 import java.io.IOException;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class MenuForImportData {
 
+    private MenuForImportData(){
+        throw new IllegalStateException("Klasa uzytkowa");
+    }
+
+public static List<Book> listaKsiazek;
 
     public static void readPathToFile() throws IOException {
         String path = "";
@@ -47,7 +53,12 @@ public class MenuForImportData {
         }
         //uruchamia metodę wczytywania danych z pliku csv
         BookImportCSV bookImportCSV = new BookImportCSVImpl();
-        bookImportCSV.bookObjectCreate(path);
+//        SlyT - to druga zmiana
+        listaKsiazek = bookImportCSV.bookObjectCreate(path);
+
+        System.out.println();
+        System.out.println("Wczytano plik z danymi");
+        System.out.println();
     }
 
     public static void printMenuItems() {
@@ -66,8 +77,8 @@ public class MenuForImportData {
         try {
             answer = scanner.nextInt();
         } catch (InputMismatchException e) {
+            System.out.println("Wprowadzono niewlasciwa wartosc.");
         }
         return answer;
     }
-
 }

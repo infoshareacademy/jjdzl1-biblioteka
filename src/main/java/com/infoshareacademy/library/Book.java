@@ -9,30 +9,10 @@ public class Book {
     private Boolean statusLoan = false;            // status wypożyczenia - true/false wypożyczona/nie wypożyczona
     private Boolean statusReservation = false;     // status rezerwacji - true/false zarezerwowana/nie zarezerwowana
 
-// konstruktor
 
     public Book(int idBook) {
         this.idBook = idBook;
     }
-
-
-//    wykomemtowalem z uwagi na fakt iz obiekt uzupelniam danymi przez settery
-/*    public Book(int idBook, String titleBook, String autor, int dateRelease, String isbn, Boolean statusLoan, Boolean statusReservation) {
-        this.idBook = idBook;
-        this.titleBook = titleBook;
-        this.author = autor;
-        this.dateRelease = dateRelease;
-        this.isbn = isbn;
-        this.statusLoan = statusLoan;
-        this.statusReservation = statusReservation;
-    }*/
-
-//gettery
-
-// nie modyfikujemy id ksiazki po utworzeniu obiektu
-/*    public void setIdBook(int idBook) {
-        this.idBook = idBook;
-    }*/
 
     public void setTitleBook(String titleBook) {
         this.titleBook = titleBook;
@@ -112,5 +92,4 @@ public class Book {
         System.out.println("Czy wypożyczona: "+statusLoan);
         System.out.println("Czy zarezerwowana: "+statusReservation);
     }
-// być może jeszcze inne metody tu się pojawią jak dodawanie książki, wyszukiwanie itd ..
 }

@@ -7,16 +7,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class BookImportCSVImpl implements BookImportCSV {
 
-    //    moze sciezke do pliku przekazywac w menu ?
-//    wtedy nie trzeba jej tu inicjalizowac ??
-   // private static final String filePath = "../../../../resources/books.csv";
+
 
     @Override
-    public List bookObjectCreate(String filePath) throws IOException {
+    public List<Book> bookObjectCreate(String filePath) throws IOException {
 
-        List<Book> ksiazki = new ArrayList<>();     //tworzymy liste obiektow Book o typie (????) ArrayList
+        //tworzymy liste obiektow Book o typie (????) ArrayList
+        List<Book> ksiazki = new ArrayList<>();
 
         //tworzymy parser w ktorym okreslamy zasady parsowania / przetwarzania pliku csv
         CSVParser parser = new CSVParserBuilder()
@@ -44,17 +44,6 @@ public class BookImportCSVImpl implements BookImportCSV {
 
 //                i teraz to listy
                 ksiazki.add(ksiazka);
-
-//                check out
-//                System.out.println(ksiazka);
-            }
-
-            //Na koniec podsumowanie
-            System.out.println("Stworzono tablice / liste ksiazki o ponizszej zawartosci: ");
-
-            //tego nie jestem pewny - nie testowalem
-            for (Book line : ksiazki) {
-                System.out.println(line);
             }
 
             return ksiazki;
