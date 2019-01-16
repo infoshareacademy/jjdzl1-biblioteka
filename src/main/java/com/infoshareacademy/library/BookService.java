@@ -84,7 +84,7 @@ public class BookService {
         System.out.println();
 
         //sprawdzenie czy wyszukiwanie znalazło więcej niż jedną książkę (lub żadnej)
-        if (positions.size() == 0) {
+        if (positions.isEmpty()) {
             System.out.println("Nie znaleziono książki" + "\n");
             chooseOption(type);
         } else if (positions.size() > 1) {
@@ -138,14 +138,14 @@ public class BookService {
     // wyświetlenie listy rezerwacji
     public static void showBooksInLists() {
         System.out.println("Lista rezerwacji: ");
-        if (listOfReservation.size() == 0)
+        if (listOfReservation.isEmpty())
             System.out.println("brak");
         else {
             for (BookService j : listOfReservation)
                 System.out.println(j);
         }
         System.out.println("Lista wypożyczeń: ");
-        if (listOfBorrowedBooks.size() == 0)
+        if (listOfBorrowedBooks.isEmpty())
             System.out.println("brak");
         else {
             for (BookService j : listOfBorrowedBooks)
