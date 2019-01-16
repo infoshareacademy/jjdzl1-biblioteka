@@ -92,8 +92,7 @@ public class BookService {
             chooseOption(type);
         } else {
             //jeśli znalazło jedną książkę pytamy użytkownika o rezerwację
-            if (type.equals(RESERVATION)) System.out.println("Potwierdzam rezerwację: (T/N)");
-            else System.out.println("Potwierdzam wypożyczenie: (T/N)");
+            System.out.println((type.equals(RESERVATION)) ? "Potwierdzam rezerwację: (T/N)" : "Potwierdzam wypożyczenie: (T/N)");
             Scanner text = new Scanner(System.in);
             String answer = text.nextLine().toLowerCase();
             if (answer.equals("t")) {
