@@ -6,8 +6,14 @@ public class Menu {
         throw new IllegalStateException("Klasa uzytkowa");
     }
 
+    private static int answer;
+
+    public static int getAnswer() {
+        return answer;
+    }
+
     public static void menuApp() {
-        int answer = MenuForImportData.readNumber();
+        answer = MenuForImportData.readNumber();
         int i = 0;
         while (i < 1) {
             if (answer == 1) {
@@ -17,12 +23,12 @@ public class Menu {
                 menuItems();
             } else if (answer == 2) {
                 System.out.println("Rezerwacja książki");
-               BookService.bookService(BookServiceType.RESERVATION);
+               BookService.bookService();
                 header();
                 menuItems();
             } else if (answer == 3) {
                 System.out.println("Wypożyczenie książki");
-                BookService.bookService(BookServiceType.BORROW);
+                BookService.bookService();
                 header();
                 menuItems();
             } else if (answer == 4) {

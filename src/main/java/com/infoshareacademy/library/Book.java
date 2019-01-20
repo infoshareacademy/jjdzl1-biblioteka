@@ -1,13 +1,12 @@
 package com.infoshareacademy.library;
 
 public class Book {
-    private int idBook ;                           // numer id książki - unikatowy
-    private String titleBook;                      // tytuł książki
-    private String author;                          // autor lub autorzy książki
-    private int dateRelease;                       // data wydania książki - tylko rok
-    private String isbn;                           // numer ISBN książki
-    private Boolean statusLoan = false;            // status wypożyczenia - true/false wypożyczona/nie wypożyczona
-    private Boolean statusReservation = false;     // status rezerwacji - true/false zarezerwowana/nie zarezerwowana
+    private int idBook;
+    private String titleBook;
+    private String author;
+    private int dateRelease;
+    private String isbn;
+    private BookStatus status;
 
 
     public Book(int idBook) {
@@ -50,22 +49,12 @@ public class Book {
         return isbn;
     }
 
-    public Boolean getStatusLoan() {
-        return statusLoan;
+    public BookStatus getStatus() {
+        return status;
     }
 
-    public Boolean getStatusReservation() {
-        return statusReservation;
-    }
-
-
-
-    public void setStatusLoan(Boolean statusLoan) {
-        this.statusLoan = statusLoan;
-    }
-
-    public void setStatusReservation(Boolean statusReservation) {
-        this.statusReservation = statusReservation;
+    public void setStatus(BookStatus status) {
+        this.status = status;
     }
 
     @Override
@@ -76,20 +65,17 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", dateRelease=" + dateRelease +
                 ", isbn='" + isbn + '\'' +
-                ", statusLoan=" + statusLoan +
-                ", statusReservation=" + statusReservation +
+                ", status=" + status +
                 '}';
     }
 
-    // wyświetla info o książce
-    public void printBook(){
+    public void printBook() {
         System.out.println("Informacje o książce:");
-        System.out.println("Numer w systemie: "+idBook);
+        System.out.println("Numer w systemie: " + idBook);
         System.out.println("Tytuł : " + titleBook);
-        System.out.println("Autor: "+ author);
-        System.out.println("Rok wydania: "+dateRelease);
-        System.out.println("Numer ISBN: "+isbn);
-        System.out.println("Czy wypożyczona: "+statusLoan);
-        System.out.println("Czy zarezerwowana: "+statusReservation);
+        System.out.println("Autor: " + author);
+        System.out.println("Rok wydania: " + dateRelease);
+        System.out.println("Numer ISBN: " + isbn);
+        System.out.println("Status: " + status);
     }
 }
