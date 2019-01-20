@@ -6,22 +6,21 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.infoshareacademy.library.BookServiceType.BORROW;
-import static com.infoshareacademy.library.BookServiceType.RESERVATION;
+import static com.infoshareacademy.library.BookStatus.*;
 
 public class BookService {
     private int id;
     private Book book;
     private Reader reader;
-    private LocalDate firstDate;
-    private LocalDate secondDate;
+    private LocalDate dateOfChangeOfStatus;
+    private LocalDate dateOfExpiry;
 
-    public BookService(int id, Book book, Reader reader, LocalDate firstDate, LocalDate secondDate) {
+    public BookService(int id, Book book, Reader reader, LocalDate dateOfChangeOfStatus, LocalDate dateOfExpiry) {
         this.id = id;
         this.book = book;
         this.reader = reader;
-        this.firstDate = firstDate;
-        this.secondDate = secondDate;
+        this.dateOfChangeOfStatus = dateOfChangeOfStatus;
+        this.dateOfExpiry = dateOfExpiry;
     }
 
     public void setId(int id) {
@@ -36,12 +35,12 @@ public class BookService {
         this.reader = reader;
     }
 
-    public void setFirstDate(LocalDate firstDate) {
-        this.firstDate = firstDate;
+    public void setDateOfChangeOfStatus(LocalDate dateOfChangeOfStatus) {
+        this.dateOfChangeOfStatus = dateOfChangeOfStatus;
     }
 
-    public void setSecondDate(LocalDate secondDate) {
-        this.secondDate = secondDate;
+    public void setDateOfExpiry(LocalDate dateOfExpiry) {
+        this.dateOfExpiry = dateOfExpiry;
     }
 
     public int getId() {
@@ -56,12 +55,12 @@ public class BookService {
         return reader;
     }
 
-    public LocalDate getFirstDate() {
-        return firstDate;
+    public LocalDate getDateOfChangeOfStatus() {
+        return dateOfChangeOfStatus;
     }
 
-    public LocalDate getSecondDate() {
-        return secondDate;
+    public LocalDate getDateOfExpiry() {
+        return dateOfExpiry;
     }
 
     @Override
@@ -70,82 +69,85 @@ public class BookService {
                 "id=" + id +
                 ", book=" + book +
                 ", reader=" + reader +
-                ", firstDate=" + firstDate +
-                ", secondDate=" + secondDate +
+                ", dateOfChangeOfStatus=" + dateOfChangeOfStatus +
+                ", dateOfExpiry=" + dateOfExpiry +
                 '}';
     }
 
-    public static List<BookService> listOfReservation = new ArrayList<>();
-    public static List<BookService> listOfBorrowedBooks = new ArrayList<>();
+    protected static final List<BookService> listOfReservation = new ArrayList<>();
+    protected static final List<BookService> listOfBorrowedBooks = new ArrayList<>();
+    private static List<Book> positions;
 
-    public static void bookService(BookServiceType type) {
+    public static void bookService() {
         //pobranie pozycji z wyszukiwarki
-        List<Book> positions = Search.searchBook();
+        positions = Search.searchBook();
         System.out.println();
 
         //sprawdzenie czy wyszukiwanie znalazło więcej niż jedną książkę (lub żadnej)
-        if (positions.size() == 0) {
+        if (positions.isEmpty()) {
             System.out.println("Nie znaleziono książki" + "\n");
-            chooseOption(type);
+            chooseOption();
         } else if (positions.size() > 1) {
             System.out.println("Nie możesz wybrać kilku książek jednocześnie, musisz zawęzić wyszukiwanie książki" + "\n");
-            chooseOption(type);
+            positions.clear();
+            chooseOption();
         } else {
             //jeśli znalazło jedną książkę pytamy użytkownika o rezerwację
-            if (type.equals(RESERVATION)) System.out.println("Potwierdzam rezerwację: (T/N)");
-            else System.out.println("Potwierdzam wypożyczenie: (T/N)");
+            System.out.println(Menu.getAnswer() == 2 ? "Potwierdzam rezerwację: (T/N)" : "Potwierdzam wypożyczenie: (T/N)");
             Scanner text = new Scanner(System.in);
             String answer = text.nextLine().toLowerCase();
             if (answer.equals("t")) {
-                if (positions.get(0).getStatusReservation() || positions.get(0).getStatusLoan()) {
-                    System.out.println("Ta książka jest już zarezerwowana lub wypożyczona" + "\n");
-                    chooseOption(type);
-                } else if (type.equals(RESERVATION)) {
-                    //zmiana statusu książki
-                    positions.get(0).setStatusReservation(true);
-
-                    //tworzenie obiektu rezerwacji
-                    BookService reservation = new BookService
-                            (listOfReservation.size() + 1, positions.get(0), null, LocalDate.now(), LocalDate.now().plusDays(3));
-
-                    System.out.println("Zarezerwowana książka:");
-                    System.out.println(reservation);
-
-                    //dodanie rezerwacji do listy
-                    BookService.listOfReservation.add(reservation);
-                } else if (type.equals(BORROW)) {
-                    positions.get(0).setStatusLoan(true);
-
-                    //tworzenie obiektu wypożyczenia
-                    BookService borrowedBook = new BookService
-                            (listOfBorrowedBooks.size() + 1, positions.get(0), null, LocalDate.now(), LocalDate.now().plusDays(30));
-
-                    System.out.println("Wypożyczona książka:");
-                    System.out.println(borrowedBook);
-
-                    //dodanie książki do listy wypożyczeń
-                    BookService.listOfBorrowedBooks.add(borrowedBook);
+                if (positions.get(0).getStatus().equals(AVAILABLE))
+                    addBookToList();
+                else {
+                    System.out.println("Ta pozycja nie jest dostępna - sprawdź status książki" + "\n");
+                    chooseOption();
                 }
             } else if (answer.equals("n")) {
-                chooseOption(type);
+                chooseOption();
             } else {
                 System.out.println("Podałeś niepoprawną komendę" + "\n");
-                bookService(type);
+                bookService();
             }
+        }
+    }
+
+    public static void addBookToList() {
+        if (Menu.getAnswer() == 2) {
+            //zmiana statusu książki
+            positions.get(0).setStatus(RESERVED);
+
+            BookService reservation = new BookService
+                    (listOfReservation.size() + 1, positions.get(0), null, LocalDate.now(), LocalDate.now().plusDays(3));
+            System.out.println("Zarezerwowana książka:");
+            System.out.println(reservation);
+
+            //dodanie książki do listy rezerwacji
+            listOfReservation.add(reservation);
+        } else if (Menu.getAnswer() == 3) {
+            positions.get(0).setStatus(BORROWED);
+
+            BookService borrowedBook = new BookService
+                    (listOfBorrowedBooks.size() + 1, positions.get(0), null, LocalDate.now(), LocalDate.now().plusDays(30));
+            System.out.println("Wypożyczona książka:");
+            System.out.println(borrowedBook);
+
+            //dodanie książki do listy wypożyczeń
+            listOfBorrowedBooks.add(borrowedBook);
         }
     }
 
     // wyświetlenie listy rezerwacji
     public static void showBooksInLists() {
         System.out.println("Lista rezerwacji: ");
-        if (listOfReservation.size() == 0)
+        if (listOfReservation.isEmpty())
             System.out.println("brak");
         else {
             for (BookService j : listOfReservation)
                 System.out.println(j);
         }
         System.out.println("Lista wypożyczeń: ");
-        if (listOfBorrowedBooks.size() == 0)
+        if (listOfBorrowedBooks.isEmpty())
             System.out.println("brak");
         else {
             for (BookService j : listOfBorrowedBooks)
@@ -154,7 +156,7 @@ public class BookService {
     }
 
     //metoda do nawigacji w menu
-    public static void chooseOption(BookServiceType type) {
+    public static void chooseOption() {
         System.out.println("Wybierz opcję:");
         System.out.println("1. Wyszukaj ponownie");
         System.out.println("2. Powrót do menu");
@@ -163,17 +165,17 @@ public class BookService {
             int chooseOption = text.nextInt();
             switch (chooseOption) {
                 case 1:
-                    bookService(type);
+                    bookService();
                     break;
                 case 2:
                     break;
                 default:
                     System.out.println("Wybierz 1 lub 2");
-                    chooseOption(type);
+                    chooseOption();
             }
         } catch (InputMismatchException e) {
             System.out.println("Podałeś niepoprawny znak");
-            chooseOption(type);
+            chooseOption();
         }
     }
 }

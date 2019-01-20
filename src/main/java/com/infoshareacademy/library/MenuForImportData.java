@@ -9,11 +9,11 @@ import java.util.Scanner;
 
 public class MenuForImportData {
 
-    private MenuForImportData(){
+    private MenuForImportData() {
         throw new IllegalStateException("Klasa uzytkowa");
     }
 
-public static List<Book> listaKsiazek;
+    public static List<Book> listaKsiazek;
 
     public static void readPathToFile() throws IOException {
         String path = "";
@@ -44,7 +44,6 @@ public static List<Book> listaKsiazek;
                     System.out.println("Błąd: Pliku nie odnaleziono! Wybierz ponownie.");
                     printMenuItems();
                 }
-
             } else {
                 System.out.println("Wpisano nieprawidłową wartość.");
                 System.out.println("Wybierz ponownie.");
