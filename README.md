@@ -13,3 +13,5 @@ Funkcjonalność zaimplementowana w aplikacji:
  - Sprawdzenie stanu rezerwacji/wypożyczenia.
 
 Szkolenie było prowadzone przez **[infoShare Academy sp z o.o.](https://infoshareacademy.com/)** w Lublinie
+
+![enter image description here](https://infoshareacademy.com/wp-content/themes/InfoShare/dist/img/svg/logo.svg)
