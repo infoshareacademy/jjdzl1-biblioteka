@@ -14,6 +14,6 @@ Funkcjonalność zaimplementowana w aplikacji:
 
 Szkolenie było prowadzone przez **[infoShare Academy sp z o.o.](https://infoshareacademy.com/)** w Lublinie
 
-[Imgur](https://i.imgur.com/64pgWmd.png)
+![Imgur](https://i.imgur.com/64pgWmd.png)
 
 ![enter image description here](https://infoshareacademy.com/wp-content/themes/InfoShare/dist/img/svg/logo.svg)
