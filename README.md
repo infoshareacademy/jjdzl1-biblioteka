@@ -5,7 +5,7 @@ Niniejsza aplikacja jest pierwszym najprostszym programem utworzonym w trakcie p
 Jest to aplikacja konsolowa pobierająca dane książek z zewnętrznego pliku CSV .
 
 Funkcjonalność zaimplementowana w aplikacji:
- - Wczytanie domyślnego pliku SCV lub możliwość wyboru własnego pliku
+ - Wczytanie domyślnego pliku CSV lub możliwość wyboru własnego pliku
  - Przeglądanie listy książek
  - Wyszukiwanie książek po tytule
  - Rezerwację książki
